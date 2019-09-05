@@ -13,5 +13,15 @@ namespace SignalRExampleServer.HubConfig
         {
             await Clients.All.SendAsync("broadcastchartdata", data);
         }
+
+        public async Task BroadcastNumber(int number)
+        {
+            await Clients.All.SendAsync("broadcastnumberchannel", number);
+        }
+
+        public async Task BroadcastNumberByItemId(int itemId, int number)
+        {
+            await Clients.All.SendAsync(itemId.ToString(), number);
+        }
     }
 }
